@@ -1,3 +1,4 @@
+// Babel REPL: https://babeljs.io/repl
 // PascalCasing
 function Message() {
     // JSX: JavaScript XML
