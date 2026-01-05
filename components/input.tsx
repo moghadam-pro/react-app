@@ -1,4 +1,6 @@
-  return (
+export default function Input() {
+return (
+  <>
     <motion.li
       onClick={() => onClick(item.id)}
       className={`bg-white relative rounded-[8px] shrink-0 w-full cursor-pointer transition-all duration-300`}
@@ -25,4 +27,5 @@
         {isSelected && <CheckIcon />}
       </div>
     </motion.li>
-  );
+    </>
+  );}
