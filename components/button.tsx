@@ -1,30 +1,39 @@
-function LoginButton({ onLogin, isLoading }) {
+import { ChevronDownIcon } from '@heroicons/react/16/solid'
+
+export default function Example() {
   return (
-    <motion.button 
-      className="bg-[#e1141e] relative rounded-[8px] shrink-0 w-full"
-      whileHover={{ backgroundColor: "#c1121a" }}
-      whileTap={{ scale: 0.98 }}
-      onClick={onLogin}
-      disabled={isLoading}
-    >
-      <div aria-hidden="true" className="absolute border border-[#e1141e] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="flex flex-row items-end size-full">
-        <div className="content-stretch flex items-end justify-center p-[8px] relative w-full">
-          {isLoading ? (
-            <div className="flex justify-center items-center">
-              <motion.div 
-                className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              />
-            </div>
-          ) : (
-            <p className="font-['Estedad:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-nowrap text-white" dir="auto">
-              ورود
-            </p>
-          )}
+    <div>
+      <label htmlFor="price" className="block text-sm/6 font-medium text-white">
+        Price
+      </label>
+      <div className="mt-2">
+        <div className="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-gray-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
+          <div className="shrink-0 text-base text-gray-400 select-none sm:text-sm/6">$</div>
+          <input
+            id="price"
+            name="price"
+            type="text"
+            placeholder="0.00"
+            className="block min-w-0 grow bg-gray-800 py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+          />
+          <div className="grid shrink-0 grid-cols-1 focus-within:relative">
+            <select
+              id="currency"
+              name="currency"
+              aria-label="Currency"
+              className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-gray-800 py-1.5 pr-7 pl-3 text-base text-gray-400 *:bg-gray-800 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+            >
+              <option>USD</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+            <ChevronDownIcon
+              aria-hidden="true"
+              className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-400 sm:size-4"
+            />
+          </div>
         </div>
       </div>
-    </motion.button>
-  );
+    </div>
+  )
 }
